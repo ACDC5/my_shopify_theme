@@ -1,0 +1,39 @@
+<section class="custom-page">
+  <h1>{{ section.settings.title }}</h1>
+  <p>{{ section.settings.description }}</p>
+  <button id="my-button">点击我</button>
+  <p id="output-text"></p>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('my-button').addEventListener('click', function () {
+      document.getElementById('output-text').innerText = '你点击了按钮！';
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "我新建是section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "标题",
+      "default": "自定义页面"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "描述",
+      "default": "这是一个学习 Shopify 主题结构的页面"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Page Section"
+    }
+  ]
+}
+{% endschema %}
