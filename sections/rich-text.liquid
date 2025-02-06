@@ -14,6 +14,8 @@
   }
 {%- endstyle -%}
 
+{% comment %} section目录下的每一个文件都对应shopify模板定义器中>添加分区中显示出来的section选项 {% endcomment %}
+{% comment %} section区，在shopify定制器中添加到页面所看到的内容 {% endcomment %}
 <div class="isolate{% unless section.settings.full_width %} page-width{% endunless %}">
   <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
     <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
@@ -94,6 +96,16 @@
   </div>
 </div>
 
+{% comment %} 每个section 只允许一个schema ，用于指定该section的属性{% endcomment %}
+
+{% comment %} "下面的name属性是当前这个section的名称，这里是经过本地化的，本地化文件在locales目录中文json文件中，在其中搜索rich-text即可见", {% endcomment %}
+{% comment %} tag属性表示当前section在转换成html代码后为<section>标签 {% endcomment %}
+{% comment %} class属性会转成html标签<section>的类属性 {% endcomment %}
+{% comment %}
+  disabled_on属性表示当前section禁止被用在shopify模板的定制器中的头部区和脚部区，
+  在这两个区添加分区时，会无法看到当前文件代表的这个分区(section)
+  https://shopify.dev/docs/storefronts/themes/architecture/sections其他属性可查看官方文档
+{% endcomment %}
 {% schema %}
 {
   "name": "t:sections.rich-text.name",
