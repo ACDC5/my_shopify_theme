@@ -1,15 +1,31 @@
+<link rel="stylesheet" href="{{ 'custom-style.css' | asset_url }}">
 <section class="custom-page">
   <h1>{{ section.settings.title }}</h1>
   <p>{{ section.settings.description }}</p>
-  <button id="my-button">点击我</button>
-  <p id="output-text"></p>
+  <button id="load-products">加载产品</button>
+  <ul id="product-list"></ul>
 </section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('my-button').addEventListener('click', function () {
-      document.getElementById('output-text').innerText = '你点击了按钮！';
-    });
+    const button = document.getElementById('load-products');
+    const productList = document.getElementById('product-list');
+
+    if (button) {
+      button.addEventListener('click', function () {
+        fetch('/products.json')
+          .then((response) => response.json())
+          .then((data) => {
+            productList.innerHTML = ''; // 清空列表
+            data.products.forEach((product) => {
+              const li = document.createElement('li');
+              li.innerHTML = `${product.title} - $${product.variants[0].price}`;
+              productList.appendChild(li);
+            });
+          })
+          .catch((error) => console.error('加载产品失败:', error));
+      });
+    }
   });
 </script>
 
