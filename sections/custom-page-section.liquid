@@ -24,7 +24,12 @@
               productList.appendChild(li);
             });
           })
-          .catch((error) => console.error('加载产品失败:', error));
+          .catch((error) => {
+            const h2 = document.createElement('h2');
+            h2.innerHTML = '加载产品失败';
+            productList.appendChild(li);
+            console.error('加载产品失败:', error);
+          });
       });
     }
   });
