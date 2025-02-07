@@ -20,7 +20,7 @@
             data.products.forEach((product) => {
               const li = document.createElement('li');
               console.log('我的产品: ', product);
-              li.innerHTML = `${product.title} - $${product.price[0].src}`;
+              li.innerHTML = `${product.title}`; // - $${product.price[0].src}`;
               productList.appendChild(li);
             });
           })
