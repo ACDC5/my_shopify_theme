@@ -3,7 +3,7 @@
     padding: 20px;
 }
 
-button {
+#load-products {
     background-color: #007bff;
     color: white;
     border: none;
@@ -12,11 +12,11 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+#load-products:hover {
     background-color: #0056b3;
 }
 
-ul {
+#product-list {
     list-style-type: none;
     padding: 0;
 }
