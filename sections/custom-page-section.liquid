@@ -19,7 +19,7 @@
             productList.innerHTML = ''; // 清空列表
             data.products.forEach((product) => {
               const li = document.createElement('li');
-              li.innerHTML = `${product.title} - $${product.variants[0].price}`;
+              li.innerHTML = `${product.title} - $${product.price[0]}`;
               console.log('我的产品: ', product);
               productList.appendChild(li);
             });
