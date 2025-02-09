@@ -23,8 +23,8 @@
               li.innerHTML = `${product.title} - `;
               const img = document.createElement('img');
               img.innerHTML = `${product.images[0].src}`;
-              li.appendChild(img);
               productList.appendChild(li);
+              productList.appendChild(img);
             });
           })
           .catch((error) => {
