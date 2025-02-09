@@ -19,8 +19,12 @@
             productList.innerHTML = ''; // 清空列表
             data.products.forEach((product) => {
               const li = document.createElement('li');
+              const img = document.createElement('img');
+              img.innerHTML = `${product.images[0].src}`;
+
+              const li = document.createElement('li');
               console.log('我的产品: ', product);
-              li.innerHTML = `${product.title} - $${product.images[0]}`;
+              li.innerHTML = `${product.title}-${img} `;
               productList.appendChild(li);
             });
           })
