@@ -22,7 +22,7 @@
               console.log('我的产品: ', product);
               li.innerHTML = `${product.title} - `;
               const img = document.createElement('img');
-              img.innerHTML = `${product.images[0].src}`;
+              img.src = product.images[0].src;
               productList.appendChild(li);
               productList.appendChild(img);
             });
